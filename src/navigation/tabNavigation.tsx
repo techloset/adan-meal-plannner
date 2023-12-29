@@ -1,100 +1,44 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {
-  View,
-  Image,
-  Text,
-  StyleSheet,
-  StatusBar,
-  TouchableOpacity,
-  ScrollView,
-  ImageBackground,
-} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import ratio from '../style/ratio';
-import {Colors, FontFamily} from '../style/Gobalstyle';
-import HomeScreen from '../screens/HomeScreen';
-import ChatScreen from '../screens/ChatScreen';
-import ListScreen from '../screens/ListScreen';
-import MealScreen from '../screens/MealScreen';
+import {View, Image, Text, StyleSheet} from 'react-native';
+import ratio from '../libs/ratio';
+import {Colors, FontFamily} from '../style/GlobalStyle';
+
+import {TabScreens} from './Screens';
+
 const Tab = createBottomTabNavigator();
 
-const Tabnavigator = () => {
+const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarHideOnKeyboard: true,
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarStyle: styles.tabcontainer,
+        tabBarStyle: styles.tabContainer,
       }}>
-      <Tab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          tabBarIcon: () => (
-            <View style={styles.taboption}>
-              <Image
-                source={require('../assets/images/sun.png')}
-                style={styles.SunImage}
-              />
-              <Text style={styles.Suntext}>Today</Text>
-            </View>
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Meal"
-        component={MealScreen}
-        options={{
-          tabBarIcon: () => (
-            <View style={styles.taboption}>
-              <Image
-                source={require('../assets/images/plate.png')}
-                style={styles.PlateImage}
-              />
-              <Text style={styles.Suntext}>Meal Plan</Text>
-            </View>
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="List"
-        component={ListScreen}
-        options={{
-          tabBarIcon: () => (
-            <View style={styles.taboption}>
-              <Image
-                source={require('../assets/images/list.png')}
-                style={styles.listImage}
-              />
-              <Text style={styles.Suntext}>Grocery List</Text>
-            </View>
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Chat"
-        component={ChatScreen}
-        options={{
-          tabBarIcon: () => (
-            <View style={styles.taboption}>
-              <Image
-                source={require('../assets/images/chat.png')}
-                style={styles.chatImage}
-              />
-              <Text style={styles.Suntext}>Chat</Text>
-            </View>
-          ),
-        }}
-      />
+      {TabScreens.map(tab => (
+        <Tab.Screen
+          key={tab.name}
+          name={tab.name}
+          component={tab.component}
+          options={{
+            tabBarIcon: () => (
+              <View style={styles.tabOption}>
+                <Image source={tab.icon} style={styles.TabImage} />
+                <Text style={styles.Text}>{tab.label}</Text>
+              </View>
+            ),
+          }}
+        />
+      ))}
     </Tab.Navigator>
   );
 };
 
-export default Tabnavigator;
+export default TabNavigator;
 
 const styles = StyleSheet.create({
-  tabcontainer: {
+  tabContainer: {
     flexDirection: 'row',
     paddingLeft: ratio.widthPixel(10.72),
     paddingRight: ratio.widthPixel(7.77),
@@ -102,41 +46,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingBottom: ratio.widthPixel(30),
-    backgroundColor: Colors.ExcatWhite,
-    color: Colors.ExcatWhite,
-    height:ratio.heightPixel(71.99),
-    borderWidth:0,
+    backgroundColor: Colors.ExactWhite,
+    color: Colors.ExactWhite,
+    height: ratio.heightPixel(71.99),
+    borderWidth: 0,
   },
-  taboption: {
+  tabOption: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.ExcatWhite,
+    backgroundColor: Colors.ExactWhite,
     height: ratio.heightPixel(40.019),
   },
-  SunImage: {
+  TabImage: {
     width: ratio.widthPixel(16.019),
     height: ratio.heightPixel(16.019),
     marginBottom: ratio.widthPixel(4.89),
   },
-  Suntext: {
-    color: Colors.ExcatBlack,
-    fontFamily: FontFamily.Medium,
+  Text: {
+    color: Colors.ExactBlack,
+    fontFamily: FontFamily.SF_Medium,
     lineHeight: ratio.fontPixel(11.218),
     fontSize: ratio.fontPixel(9.011),
-  },
-  PlateImage: {
-    width: ratio.widthPixel(14.517),
-    height: ratio.heightPixel(14.517),
-    marginBottom: ratio.widthPixel(4.89),
-  },
-  listImage: {
-    width: ratio.widthPixel(12.014),
-    height: ratio.heightPixel(14.014),
-    marginBottom: ratio.widthPixel(5.79),
-  },
-  chatImage: {
-    width: ratio.widthPixel(12.765),
-    height: ratio.heightPixel(12.765),
-    marginBottom: ratio.widthPixel(4.89),
   },
 });

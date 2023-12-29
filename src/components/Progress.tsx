@@ -3,14 +3,10 @@ import {
   Image,
   Text,
   StyleSheet,
-  StatusBar,
   TouchableOpacity,
-  ScrollView,
-  ImageBackground,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import ratio from '../style/ratio';
-import {Colors, FontFamily} from '../style/Gobalstyle';
+import ratio from '../libs/ratio';
+import {Colors, FontFamily} from '../style/GlobalStyle';
 import {useState} from 'react';
 
 const Progress = () => {
@@ -18,99 +14,99 @@ const Progress = () => {
 
   return (
     <View>
-    {!prize ? (
-      <View style={styles.ProgressContainer}>
-        <View style={styles.ProgressTitle}>
-          <Text style={styles.Title}>Today’s Progress</Text>
-          <TouchableOpacity onPress={() => setPrize(true)}>
-            <Text style={styles.View}>View more</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.CalContainer}>
-          <View>
-            <Text style={styles.Calories}>Calories</Text>
-            <View style={styles.FireContainer}>
-              <Image
-                source={require('../assets/images/fire.png')}
-                style={styles.FireImage}
-              />
-              <Text style={styles.FireText}>1,284</Text>
+      {!prize ? (
+        <View style={styles.ProgressContainer}>
+          <View style={styles.ProgressTitle}>
+            <Text style={styles.Title}>Today’s Progress</Text>
+            <TouchableOpacity onPress={() => setPrize(true)}>
+              <Text style={styles.View}>View more</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.CalContainer}>
+            <View>
+              <Text style={styles.Calories}>Calories</Text>
+              <View style={styles.FireContainer}>
+                <Image
+                  source={require('../assets/images/fire.png')}
+                  style={styles.FireImage}
+                />
+                <Text style={styles.FireText}>1,284</Text>
+              </View>
+            </View>
+            <View style={styles.CircleContainer}>
+              <View style={styles.FirstCircleContainer}>
+                <Image
+                  source={require('../assets/images/yellow.png')}
+                  style={styles.yellowImage}
+                />
+                <Text style={styles.Percentage}>29%</Text>
+                <Text style={styles.type}>Fat</Text>
+              </View>
+              <View style={styles.FirstCircleContainer}>
+                <Image
+                  source={require('../assets/images/blue.png')}
+                  style={styles.blueImage}
+                />
+                <Text style={styles.Percentage}>65%</Text>
+                <Text style={styles.type}>Pro</Text>
+              </View>
+              <View style={styles.FirstCircleContainer}>
+                <Image
+                  source={require('../assets/images/purple.png')}
+                  style={styles.purpleImage}
+                />
+                <Text style={styles.Percentage}>85%</Text>
+                <Text style={styles.type}>{"Carb"}</Text>
+              </View>
             </View>
           </View>
-          <View style={styles.CircleContainer}>
-            <View style={styles.FirstCircleContainer}>
-              <Image
-                source={require('../assets/images/yellow.png')}
-                style={styles.yellowImage}
-              />
-              <Text style={styles.precent}>29%</Text>
-              <Text style={styles.type}>Fat</Text>
-            </View>
-            <View style={styles.FirstCircleContainer}>
-              <Image
-                source={require('../assets/images/blue.png')}
-                style={styles.blueImage}
-              />
-              <Text style={styles.precent}>65%</Text>
-              <Text style={styles.type}>Pro</Text>
-            </View>
-            <View style={styles.FirstCircleContainer}>
-              <Image
-                source={require('../assets/images/purple.png')}
-                style={styles.purlpeImage}
-              />
-              <Text style={styles.precent}>85%</Text>
-              <Text style={styles.type}>Carb</Text>
+          <View style={styles.surpriseContainer}>
+            <Image
+              source={require('../assets/images/profile2.png')}
+              style={styles.DpImage}
+            />
+            <View style={styles.partyContainer}>
+              <Text style={styles.party}>
+                🎉 Keep the pace! You’re doing great.
+              </Text>
             </View>
           </View>
         </View>
-        <View style={styles.supriseContainer}>
+      ) : (
+        <View style={styles.PrizeContainer}>
           <Image
-            source={require('../assets/images/profile2.png')}
-            style={styles.DpImage}
+            source={require('../assets/images/cup.png')}
+            style={styles.ChampImage}
           />
-          <View style={styles.partyContainer}>
-            <Text style={styles.party}>
-              🎉 Keep the pace! You’re doing great.
+          <View>
+            <Text style={styles.WowText}>Wow! You made it</Text>
+            <Text style={styles.PrizeText}>
+              You have won{' '}
+              <Text
+                style={{
+                  color: Colors.ExactWhite,
+                  fontFamily: FontFamily.SF_SemiBold,
+                }}>
+                5 days free trial
+              </Text>{' '}
+              of the daily diet plan. Enjoy!
             </Text>
           </View>
-        </View>
-      </View>
-    ) : (
-      <View style={styles.PrizeContianer}>
-        <Image
-          source={require('../assets/images/cup.png')}
-          style={styles.ChampImage}
-        />
-        <View>
-          <Text style={styles.Wowtext}>Wow! You made it</Text>
-          <Text style={styles.prizetext}>
-            You have won{' '}
-            <Text
-              style={{
-                color: Colors.ExcatWhite,
-                fontFamily: FontFamily.SemiBold,
-              }}>
-              5 days free trial
-            </Text>{' '}
-            of the daily diet plan. Enjoy!
-          </Text>
-        </View>
-        <TouchableOpacity
-          style={styles.CrossContainer}
-          onPress={() => setPrize(false)}>
+          <TouchableOpacity
+            style={styles.CrossContainer}
+            onPress={() => setPrize(false)}>
+            <Image
+              source={require('../assets/images/cross.png')}
+              style={styles.crossImage}
+            />
+          </TouchableOpacity>
           <Image
-            source={require('../assets/images/cross.png')}
-            style={styles.crossImage}
+            source={require('../assets/images/party.png')}
+            style={styles.partyImage}
           />
-        </TouchableOpacity>
-        <Image
-          source={require('../assets/images/party.png')}
-          style={styles.partyImage}
-        />
-      </View>
-    )}
-  </View>
+        </View>
+      )}
+    </View>
   );
 };
 
@@ -134,14 +130,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   Title: {
-    color: Colors.ExcatBlack,
-    fontFamily: FontFamily.Bold,
+    color: Colors.ExactBlack,
+    fontFamily: FontFamily.SF_Bold,
     lineHeight: ratio.fontPixel(12.439),
     fontSize: ratio.fontPixel(9.991),
   },
   View: {
     color: '#1F73F1',
-    fontFamily: FontFamily.SemiBold,
+    fontFamily: FontFamily.SF_SemiBold,
     lineHeight: ratio.fontPixel(9.952),
     fontSize: ratio.fontPixel(7.993),
   },
@@ -154,7 +150,7 @@ const styles = StyleSheet.create({
   },
   Calories: {
     color: Colors.lightGray,
-    fontFamily: FontFamily.Regular,
+    fontFamily: FontFamily.SF_Regular,
     lineHeight: ratio.fontPixel(9.952),
     fontSize: ratio.fontPixel(7.993),
   },
@@ -169,8 +165,8 @@ const styles = StyleSheet.create({
     marginRight: ratio.widthPixel(1.5),
   },
   FireText: {
-    color: Colors.ExcatBlack,
-    fontFamily: FontFamily.SemiBold,
+    color: Colors.ExactBlack,
+    fontFamily: FontFamily.SF_SemiBold,
     lineHeight: ratio.fontPixel(13.386),
     fontSize: ratio.fontPixel(10.991),
   },
@@ -190,15 +186,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderColor: '#F3F3F3',
   },
-  precent: {
-    color: Colors.ExcatBlack,
-    fontFamily: FontFamily.SemiBold,
+  Percentage: {
+    color: Colors.ExactBlack,
+    fontFamily: FontFamily.SF_SemiBold,
     lineHeight: ratio.fontPixel(10.49),
     fontSize: ratio.fontPixel(8.426),
   },
   type: {
     color: Colors.lightGray,
-    fontFamily: FontFamily.Regular,
+    fontFamily: FontFamily.SF_Regular,
     lineHeight: ratio.fontPixel(8.159),
     fontSize: ratio.fontPixel(6.553),
   },
@@ -210,7 +206,7 @@ const styles = StyleSheet.create({
     bottom: ratio.heightPixel(-5),
     right: ratio.widthPixel(-5),
   },
-  purlpeImage: {
+  purpleImage: {
     width: ratio.widthPixel(38.852),
     height: ratio.heightPixel(38.852),
     borderWidth: ratio.widthPixel(4.918),
@@ -226,7 +222,7 @@ const styles = StyleSheet.create({
     bottom: ratio.heightPixel(-7),
     right: ratio.widthPixel(-5),
   },
-  supriseContainer: {
+  surpriseContainer: {
     marginLeft: ratio.widthPixel(10.98),
     marginTop: ratio.widthPixel(8.26),
     alignItems: 'center',
@@ -247,12 +243,12 @@ const styles = StyleSheet.create({
     borderRadius: ratio.widthPixel(11.168),
   },
   party: {
-    color: Colors.ExcatBlack,
-    fontFamily: FontFamily.Regular,
+    color: Colors.ExactBlack,
+    fontFamily: FontFamily.SF_Regular,
     lineHeight: ratio.fontPixel(11.195),
     fontSize: ratio.fontPixel(8.992),
   },
-  PrizeContianer: {
+  PrizeContainer: {
     marginLeft: ratio.widthPixel(9),
     marginTop: ratio.heightPixel(11.28),
     width: ratio.widthPixel(203),
@@ -271,17 +267,17 @@ const styles = StyleSheet.create({
     width: ratio.widthPixel(33.427),
     height: ratio.heightPixel(33.427),
   },
-  Wowtext: {
+  WowText: {
     color: '#FFFDFB',
-    fontFamily: FontFamily.Bold,
+    fontFamily: FontFamily.SF_Bold,
     fontSize: ratio.fontPixel(13.317),
     marginTop: ratio.heightPixel(12.03),
     marginBottom: ratio.heightPixel(5.54),
   },
-  prizetext: {
+  PrizeText: {
     width: ratio.widthPixel(117.025),
     color: '#D8C0FF',
-    fontFamily: FontFamily.Regular,
+    fontFamily: FontFamily.SF_Regular,
     lineHeight: ratio.fontPixel(11.653),
     fontSize: ratio.fontPixel(9.36),
   },

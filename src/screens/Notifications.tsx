@@ -8,8 +8,8 @@ import {
   ScrollView,
 } from 'react-native';
 
-import ratio from '../style/ratio';
-import {Colors, FontFamily} from '../style/Gobalstyle';
+import ratio from '../libs/ratio';
+import {Colors, FontFamily} from '../style/GlobalStyle';
 
 interface StepOneScreenProps {
   navigation: any;
@@ -17,20 +17,22 @@ interface StepOneScreenProps {
 const Notification: React.FC<StepOneScreenProps> = ({navigation}) => {
   return (
     <View style={styles.ScreenContainer}>
-      <StatusBar backgroundColor={Colors.ExcatPink} />
+      <StatusBar backgroundColor={Colors.ExactPink} />
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
         <View style={styles.SkipContainer}>
-          <Image
-            source={require('../assets/images/leftarrow.png')}
-            style={styles.ArrowImage}
-          />
-           <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('Tab');
-          }}>
-          <Text style={styles.Skip}>Skip</Text>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Image
+              source={require('../assets/images/leftarrow.png')}
+              style={styles.ArrowImage}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Tab');
+            }}>
+            <Text style={styles.Skip}>Skip</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.HeaderContainer}>
@@ -98,7 +100,7 @@ export default Notification;
 const styles = StyleSheet.create({
   ScreenContainer: {
     flex: 1,
-    backgroundColor: Colors.ExcatPink,
+    backgroundColor: Colors.ExactPink,
   },
   ScrollViewFlex: {
     flexGrow: 1,
@@ -112,13 +114,13 @@ const styles = StyleSheet.create({
     marginRight: ratio.widthPixel(15.84),
   },
   Skip: {
-    alignItems:"center",
-    alignSelf:"center",
+    alignItems: 'center',
+    alignSelf: 'center',
     fontSize: ratio.fontPixel(9.573),
     lineHeight: ratio.fontPixel(11.918),
-    fontFamily: FontFamily.Bold,
+    fontFamily: FontFamily.SF_Bold,
     letterSpacing: ratio.fontPixel(0.239),
-    color: Colors.ExcatLightBlue,
+    color: Colors.ExactLightBlue,
   },
   ArrowImage: {
     width: ratio.widthPixel(19.911),
@@ -132,14 +134,14 @@ const styles = StyleSheet.create({
   },
   Header: {
     color: Colors.DarkPink,
-    fontFamily: FontFamily.SemiBold,
+    fontFamily: FontFamily.SF_SemiBold,
     lineHeight: ratio.fontPixel(18.297),
     fontSize: ratio.fontPixel(14.696),
   },
   WhiteContainer: {
     width: ratio.widthPixel(185),
     height: ratio.heightPixel(60.436),
-    backgroundColor: Colors.ExcatWhite,
+    backgroundColor: Colors.ExactWhite,
     borderRadius: 6.699,
     marginLeft: ratio.widthPixel(15),
     marginTop: ratio.heightPixel(28),
@@ -155,7 +157,7 @@ const styles = StyleSheet.create({
   BlackContainer: {
     width: ratio.widthPixel(10.306),
     height: ratio.heightPixel(10.306),
-    backgroundColor: Colors.ExcatBlack,
+    backgroundColor: Colors.ExactBlack,
     borderRadius: 2.2333,
     alignItems: 'center',
     justifyContent: 'center',
@@ -168,15 +170,15 @@ const styles = StyleSheet.create({
   },
   Now: {
     color: 'rgba(0, 0, 0, 0.5)',
-    fontFamily: FontFamily.Regular,
+    fontFamily: FontFamily.SF_Regular,
     fontSize: ratio.fontPixel(6.699),
     lineHeight: ratio.fontPixel(9.276),
     letterSpacing: ratio.fontPixel(-0.041),
   },
   WhiteTitle: {
     marginTop: ratio.heightPixel(4.12),
-    color: Colors.ExcatBlack,
-    fontFamily: FontFamily.SemiBold,
+    color: Colors.ExactBlack,
+    fontFamily: FontFamily.SF_SemiBold,
     lineHeight: ratio.fontPixel(10.306),
     letterSpacing: ratio.fontPixel(-0.124),
     fontSize: ratio.fontPixel(7.73),
@@ -184,8 +186,8 @@ const styles = StyleSheet.create({
   },
   WhiteText: {
     marginTop: ratio.heightPixel(2.11),
-    color: Colors.ExcatBlack,
-    fontFamily: FontFamily.Regular,
+    color: Colors.ExactBlack,
+    fontFamily: FontFamily.SF_Regular,
     lineHeight: ratio.fontPixel(10.306),
     letterSpacing: ratio.fontPixel(-0.124),
     fontSize: ratio.fontPixel(7.73),
@@ -206,7 +208,7 @@ const styles = StyleSheet.create({
   },
   OptionText: {
     color: Colors.DarkPink,
-    fontFamily: FontFamily.Medium,
+    fontFamily: FontFamily.SF_Medium,
     lineHeight: ratio.fontPixel(11.804),
     letterSpacing: ratio.fontPixel(0.237),
     fontSize: ratio.fontPixel(9.481),
@@ -222,7 +224,7 @@ const styles = StyleSheet.create({
     marginTop: ratio.heightPixel(92.5),
     width: ratio.widthPixel(193),
     height: ratio.heightPixel(32),
-    backgroundColor: Colors.ExcatPurple,
+    backgroundColor: Colors.ExactPurple,
     borderRadius: 2.503,
     alignSelf: 'center',
     marginHorizontal: 'auto',
@@ -230,8 +232,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   ButtonText: {
-    color: Colors.ExcatWhite,
-    fontFamily: FontFamily.Bold,
+    color: Colors.ExactWhite,
+    fontFamily: FontFamily.SF_Bold,
     lineHeight: ratio.fontPixel(13.089),
     letterSpacing: ratio.fontPixel(0.25),
     fontSize: ratio.fontPixel(10.513),
