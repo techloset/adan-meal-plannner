@@ -12,6 +12,7 @@ import {
 
 import ratio from '../libs/ratio';
 import {Colors, FontFamily} from '../style/GlobalStyle';
+import {ScreenNames} from '../navigation/Screens';
 
 const FeedbackScreen = ({navigation}) => {
   return (
@@ -29,7 +30,7 @@ const FeedbackScreen = ({navigation}) => {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate('Tab');
+              navigation.navigate(`${ScreenNames.TAB}`);
             }}>
             <Text style={styles.Skip}>Skip</Text>
           </TouchableOpacity>
@@ -83,7 +84,7 @@ const FeedbackScreen = ({navigation}) => {
         </View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('Tab');
+            navigation.navigate(`${ScreenNames.TAB}`);
           }}>
           <View style={styles.ButtonContainer}>
             <Text style={styles.ButtonText}>Submit Feedback</Text>

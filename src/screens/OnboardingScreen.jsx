@@ -10,6 +10,7 @@ import {
 
 import ratio from '../libs/ratio';
 import {Colors, FontFamily} from '../style/GlobalStyle';
+import {ScreenNames} from '../navigation/Screens';
 
 const OnboardingScreen = ({navigation}) => {
   return (
@@ -45,7 +46,7 @@ const OnboardingScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.NextContainer}
             onPress={() => {
-              navigation.navigate('StepOne');
+              navigation.navigate(`${ScreenNames.STEP_ONE}`);
             }}>
             <Text style={styles.Next}>Next</Text>
           </TouchableOpacity>

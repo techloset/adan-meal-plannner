@@ -10,8 +10,9 @@ import {
 } from 'react-native';
 import ratio from '../libs/ratio';
 import {Colors, FontFamily} from '../style/GlobalStyle';
+import {ScreenNames} from '../navigation/Screens';
 
-const Preparation = ({navigation}) => {
+const PreparationScreen = ({navigation}) => {
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={Colors.ExactWhite} />
@@ -67,14 +68,14 @@ const Preparation = ({navigation}) => {
             <TouchableOpacity
               style={styles.Previous}
               onPress={() => {
-                navigation.navigate('Onboarding');
+                navigation.navigate(`${ScreenNames.ONBOARDING}`);
               }}>
               <Text style={styles.PreviousText}>Previous</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.Next}
               onPress={() => {
-                navigation.navigate('StepFour');
+                navigation.navigate(`${ScreenNames.TAB}`);
               }}>
               <Text style={styles.NextText}>Finish cook</Text>
               <Image
@@ -89,7 +90,7 @@ const Preparation = ({navigation}) => {
   );
 };
 
-export default Preparation;
+export default PreparationScreen;
 
 const styles = StyleSheet.create({
   ScreenContainer: {

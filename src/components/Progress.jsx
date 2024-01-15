@@ -1,10 +1,4 @@
-import {
-  View,
-  Image,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Image, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import ratio from '../libs/ratio';
 import {Colors, FontFamily} from '../style/GlobalStyle';
 import {useState} from 'react';
@@ -56,7 +50,7 @@ const Progress = () => {
                   style={styles.purpleImage}
                 />
                 <Text style={styles.Percentage}>85%</Text>
-                <Text style={styles.type}>{"Carb"}</Text>
+                <Text style={styles.type}>{'Carb'}</Text>
               </View>
             </View>
           </View>

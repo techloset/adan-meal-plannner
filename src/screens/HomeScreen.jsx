@@ -11,6 +11,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import ratio from '../libs/ratio';
 import {Colors} from '../style/GlobalStyle';
 import Progress from '../components/Progress';
+import {ScreenNames} from '../navigation/Screens';
 
 const HomeScreen = ({navigation}) => {
   return (
@@ -26,7 +27,7 @@ const HomeScreen = ({navigation}) => {
           />
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate('Setting');
+              navigation.navigate(`${ScreenNames.SETTINGS}`);
             }}>
             <Image
               source={require('../assets/images/settings.png')}
@@ -37,7 +38,7 @@ const HomeScreen = ({navigation}) => {
         <Progress />
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('Recipe');
+            navigation.navigate(`${ScreenNames.RECIPE}`);
           }}>
           <Image
             source={require('../assets/images/meal-one.jpg')}

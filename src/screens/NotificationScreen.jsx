@@ -10,11 +10,9 @@ import {
 
 import ratio from '../libs/ratio';
 import {Colors, FontFamily} from '../style/GlobalStyle';
+import {ScreenNames} from '../navigation/Screens';
 
-interface StepOneScreenProps {
-  navigation: any;
-}
-const Notification: React.FC<StepOneScreenProps> = ({navigation}) => {
+const NotificationScreen = ({navigation}) => {
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={Colors.ExactPink} />
@@ -30,7 +28,7 @@ const Notification: React.FC<StepOneScreenProps> = ({navigation}) => {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate('Tab');
+              navigation.navigate(`${ScreenNames.TAB}`);
             }}>
             <Text style={styles.Skip}>Skip</Text>
           </TouchableOpacity>
@@ -84,7 +82,7 @@ const Notification: React.FC<StepOneScreenProps> = ({navigation}) => {
         </View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('Feedback');
+            navigation.navigate(`${ScreenNames.FEEDBACK}`);
           }}>
           <View style={styles.ButtonContainer}>
             <Text style={styles.ButtonText}>Enable</Text>
@@ -95,7 +93,7 @@ const Notification: React.FC<StepOneScreenProps> = ({navigation}) => {
   );
 };
 
-export default Notification;
+export default NotificationScreen;
 
 const styles = StyleSheet.create({
   ScreenContainer: {

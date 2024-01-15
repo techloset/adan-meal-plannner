@@ -12,6 +12,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 import ratio from '../libs/ratio';
 import {Colors, FontFamily} from '../style/GlobalStyle';
+import {ScreenNames} from '../navigation/Screens';
 
 const RecipeScreen = ({navigation}) => {
   return (
@@ -107,7 +108,7 @@ const RecipeScreen = ({navigation}) => {
           </View>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate('Preparation');
+              navigation.navigate(`${ScreenNames.PREPARATION}`);
             }}>
             <View style={styles.ButtonContainer}>
               <Text style={styles.ButtonText}>Start cooking</Text>

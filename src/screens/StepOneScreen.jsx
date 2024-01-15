@@ -9,6 +9,7 @@ import {
 
 import ratio from '../libs/ratio';
 import {Colors, FontFamily} from '../style/GlobalStyle';
+import {ScreenNames} from '../navigation/Screens';
 
 const StepOneScreen = ({navigation}) => {
   return (
@@ -34,7 +35,7 @@ const StepOneScreen = ({navigation}) => {
           </View>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate('Tab');
+              navigation.navigate(`${ScreenNames.TAB}`);
             }}>
             <Text style={styles.Skip}>Skip</Text>
           </TouchableOpacity>
@@ -95,7 +96,7 @@ const StepOneScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.Next}
             onPress={() => {
-              navigation.navigate('StepFour');
+              navigation.navigate(`${ScreenNames.STEP_FOUR}`);
             }}>
             <Text style={styles.NextText}>Next</Text>
           </TouchableOpacity>

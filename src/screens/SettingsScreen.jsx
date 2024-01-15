@@ -11,7 +11,7 @@ import {
 import {Colors, FontFamily} from '../style/GlobalStyle';
 import ratio from '../libs/ratio';
 
-const SettingsScreen = () => {
+const SettingsScreen = ({navigation}) => {
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={Colors.ExactWhite} />
@@ -20,11 +20,11 @@ const SettingsScreen = () => {
         contentContainerStyle={styles.ScrollViewFlex}>
         <View style={styles.HeaderContainer}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Image
-            source={require('../assets/images/leftarrow.png')}
-            style={styles.ArrowImage}
-          />
-          </TouchableOpacity> 
+            <Image
+              source={require('../assets/images/leftarrow.png')}
+              style={styles.ArrowImage}
+            />
+          </TouchableOpacity>
           <Text style={styles.Setting}>Settings</Text>
         </View>
         <View style={styles.ProfileContainer}>
@@ -111,10 +111,10 @@ const SettingsScreen = () => {
               style={styles.WeightImage}
             />
           </View>
-          <View style={styles.Line}/>
+          <View style={styles.Line} />
           <View style={styles.ButtonContainer}>
-              <Text style={styles.ButtonText}>Start cooking</Text>
-            </View>
+            <Text style={styles.ButtonText}>Start cooking</Text>
+          </View>
         </View>
         <View style={styles.WeightContainer}>
           <View style={styles.WeightTitle}>
@@ -133,7 +133,7 @@ const SettingsScreen = () => {
                 1,548<Text style={styles.Kg}>Cal</Text>
               </Text>
               <View>
-              <Text style={styles.Mass}>89% Goal</Text>
+                <Text style={styles.Mass}>89% Goal</Text>
               </View>
             </View>
             <Image
@@ -141,7 +141,6 @@ const SettingsScreen = () => {
               style={styles.CaloriesImage}
             />
           </View>
-          
         </View>
       </ScrollView>
     </View>
@@ -391,11 +390,11 @@ const styles = StyleSheet.create({
     marginLeft: ratio.widthPixel(12.53),
     marginTop: ratio.widthPixel(3.2),
   },
-  Line:{
+  Line: {
     width: ratio.widthPixel(180.69),
     height: ratio.heightPixel(1),
-    marginHorizontal:"auto",
-    alignSelf:"center",
+    marginHorizontal: 'auto',
+    alignSelf: 'center',
     color: '#3F3B3B',
     marginTop: ratio.widthPixel(4),
     marginBottom: ratio.widthPixel(2),
@@ -421,6 +420,6 @@ const styles = StyleSheet.create({
     width: ratio.widthPixel(70.991),
     height: ratio.heightPixel(32.765),
     marginRight: ratio.widthPixel(28.63),
-    marginTop:ratio.heightPixel(21.71),
+    marginTop: ratio.heightPixel(21.71),
   },
 });

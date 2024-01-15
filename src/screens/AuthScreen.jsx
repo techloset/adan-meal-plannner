@@ -12,6 +12,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 import ratio from '../libs/ratio';
 import {Colors, FontFamily} from '../style/GlobalStyle';
+import {ScreenNames} from '../navigation/Screens';
 
 const AuthScreen = ({navigation}) => {
   return (
@@ -34,7 +35,7 @@ const AuthScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.EmailContainer}
             onPress={() => {
-              navigation.navigate('Tab');
+              navigation.navigate(`${ScreenNames.TAB}`);
             }}>
             <Text style={styles.Email}>Sign up with email</Text>
           </TouchableOpacity>
@@ -68,7 +69,7 @@ const AuthScreen = ({navigation}) => {
             <Text style={styles.Already}>Already have account? </Text>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('Onboarding');
+                navigation.navigate(`${ScreenNames.ONBOARDING}`);
               }}>
               <Text style={styles.Login}> Log In</Text>
             </TouchableOpacity>

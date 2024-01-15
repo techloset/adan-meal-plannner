@@ -11,6 +11,7 @@ import {
 
 import ratio from '../libs/ratio';
 import {Colors, FontFamily} from '../style/GlobalStyle';
+import {ScreenNames} from '../navigation/Screens';
 
 const UpgradeScreen = ({navigation}) => {
   return (
@@ -58,7 +59,7 @@ const UpgradeScreen = ({navigation}) => {
           </View>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate('Home');
+              navigation.navigate(`${ScreenNames.HOME}`);
             }}>
             <View style={styles.ButtonContainer}>
               <Text style={styles.ButtonText}>Submit Feedback</Text>
